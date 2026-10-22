@@ -1,41 +1,74 @@
-# Dealer Evaluation Django Application
+# Dealership Evaluation Application
 
-## Project Overview
-This is a Django-based dealership evaluation application that provides API endpoints for managing car dealers, reviews, and sentiment analysis. The application is containerized using Docker and can be deployed to Kubernetes clusters.
+## Project Name: Dealership Evaluation Application
 
-## Features
-- User authentication (login/logout) with Django admin
-- Dealer management (CRUD operations)
-- Car make and model listings
-- Review submission and sentiment analysis
-- Filter dealers by state
-- Role-based access
+A full-stack Django web application for evaluating car dealers with user authentication, dealer management, reviews, and sentiment analysis. Containerized with Docker and deployed to Kubernetes.
 
 ## Technology Stack
-- Django 6.1.2
-- Django REST Framework
-- SQLite3 database
-- Docker for containerization
-- Kubernetes for orchestration
+- **Backend:** Django 6.1.2, Django REST Framework 3.18.3
+- **Database:** SQLite3
+- **Frontend:** HTML/CSS, Bootstrap 5, React (Register component)
+- **Containerization:** Docker (python:3.12.0-slim-bookworm)
+- **Orchestration:** Kubernetes (deployment.yaml with RollingUpdate strategy)
+- **CI/CD:** GitHub Actions
+
+## Project Structure
+```
+dealer-evaluation-final/
+├── manage.py                    # Django management script
+├── requirements.txt             # Python dependencies
+├── Dockerfile                   # Container build instructions
+├── entrypoint.sh                # Container startup script
+├── deployment.yaml              # Kubernetes deployment manifest
+├── deploymentURL                # Deployment URL file
+├── CICD                         # GitHub Actions workflow output
+├── README.md                    # Project documentation
+├── djangoproj/                  # Django project settings
+├── dealership/                  # Django app (models, views, API)
+├── templates/                   # HTML templates
+├── server/
+│   └── frontend/
+│       ├── static/
+│       │   ├── About.html       # About Us page
+│       │   └── Contact.html     # Contact Us page
+│       └── src/
+│           └── components/
+│               └── Register/
+│                   └── Register.jsx  # Sign-up component
+└── frontend/                    # Additional frontend files
+```
 
 ## API Endpoints
-- GET /api/makes/ - List all car makes
-- GET /api/dealers/ - List all dealers
-- GET /api/dealers/?state=Kansas - Filter dealers by state
-- GET /api/dealers/{id}/ - Get dealer by ID
-- GET /api/reviews/ - List all reviews
-- GET /api/reviews/?dealer_id={id} - Get reviews for a dealer
-- POST /api/reviews/ - Submit a new review
-- POST /admin/login/ - Admin login
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/makes/ | List all car makes |
+| GET | /api/dealers/ | List all dealers |
+| GET | /api/dealers/?state=Kansas | Filter dealers by state |
+| GET | /api/dealers/{id}/ | Get dealer by ID |
+| GET | /api/dealers/{id}/reviews/ | Get reviews for a dealer |
+| GET | /api/reviews/ | List all reviews |
+| POST | /api/reviews/ | Submit a new review |
+| POST | /api/reviews/analyze/ | Sentiment analysis |
 
-## Containerization
-- Dockerfile built and pushed to IBM Cloud Container Registry
-- Kubernetes deployment.yaml created for dealership application
-- Port forwarding used for local development (8000:8000)
+## Setup & Run
+```bash
+pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver 0.0.0.0:8000
+```
 
-## Installation
-1. Clone the repository
-2. Run `docker build -t us.icr.io/<namespace>/dealership .`
-3. Run `docker push us.icr.io/<namespace>/dealership`
-4. Apply deployment: `kubectl apply -f deployment.yaml`
-5. Port-forward: `kubectl port-forward deployment.apps/dealership 8000:8000`
+## Docker Build & Deploy
+```bash
+docker build -t us.icr.io/<namespace>/dealership .
+docker push us.icr.io/<namespace>/dealership
+kubectl apply -f deployment.yaml
+kubectl port-forward deployment.apps/dealership 8000:8000
+```
+
+## Admin Credentials
+- **Username:** root
+- **Password:** admin123
+
+## Author
+Gayatri Dhas
