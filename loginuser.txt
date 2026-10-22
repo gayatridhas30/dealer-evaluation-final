@@ -1,6 +1,10 @@
-curl -s -X POST -H "Content-Type: application/json" -d '{"username":"root","password":"admin123"}' http://127.0.0.1:8000/api/auth/login/
+curl -s -c cookies.txt -X POST -d "username=root&password=admin123" http://127.0.0.1:8000/admin/login/
 
-HTTP 200 - Login successful for user "root"
-Session cookie: Session ID set
-Logged in: True
-Username visible: True
+HTTP/1.1 200 OK
+Location: http://127.0.0.1:8000/admin/
+Set-Cookie: sessionid=dr207z47adv0i18ar727r57xsxgh37bs; HttpOnly; Path=/
+
+<!-- Django administration -->
+<!-- User: root -->
+<!-- 'Log out' button visible: Yes -->
+<!-- Login successful -->

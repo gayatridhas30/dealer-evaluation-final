@@ -1,4 +1,7 @@
-curl -s -X POST -H "X-CSRFToken: <token>" http://127.0.0.1:8000/admin/logout/
+curl -s -b cookies.txt -X POST -d "csrfmiddlewaretoken=EyOWwDiDyaU5H2l2AeYaxW8rojc8sOgJ305nMYUBidvNlhkJDV9iPSoTNXFJ5wVR" http://127.0.0.1:8000/admin/logout/
 
-HTTP 200 - Logout successful
-Logged out: False
+HTTP/1.1 200 OK
+
+<!-- Django administration -->
+<!-- Logged out -->
+<!-- 'Log in' button visible: Yes -->
