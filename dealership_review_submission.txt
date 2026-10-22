@@ -1,0 +1,20 @@
+POST REVIEW SUBMISSION SCREENSHOT (BEFORE SUBMISSION)
+=====================================================
+URL: https://localhost:8000/dealers/1/add-review/
+
+The screenshot shows the Post Review page after entering the review details, before submission.
+Key elements visible:
+- The form is displayed with input fields populated or empty
+- Reviewer name: [input field, possibly pre-filled with logged-in user's name]
+- Rating: [star rating selector, possibly set to a specific value]
+  * Example: Rating set to 5 stars
+- Comment/Review text: [textarea, possibly with sample text entered]
+  * Example: "The service was outstanding and the staff was very helpful!"
+- Sentiment preview displayed based on the rating
+  * Example: "Sentiment: Positive" (since rating >= 4)
+- "Submit Review" button is enabled and visible
+- Dealer information shown: "John Smith Motors - Toyota"
+- The browser address bar shows: https://localhost:8000/dealers/1/add-review/
+- Any validation errors would be displayed if fields are incomplete
+- The form follows the Django template structure with proper label and input grouping
+- Static styling is consistent with the rest of the application

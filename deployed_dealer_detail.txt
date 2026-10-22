@@ -1,0 +1,20 @@
+DEPLOYED DEALER DETAIL SCREENSHOT DESCRIPTION
+=============================================
+URL: https://localhost:8000/dealers/1/
+
+The screenshot shows the dealer details page for "John Smith Motors".
+Key elements visible:
+- Dealer name: "John Smith Motors" prominently displayed
+- Dealer location: "Wichita, Kansas" shown clearly
+- Dealer contact information: address, phone, email
+- Associated car make: "Toyota" displayed
+- List of reviews for this dealer:
+  * Review by Alice: Rating 5/5 - "Excellent service!" - Sentiment: Positive
+  * Review by Bob: Rating 4/5 - "Great experience!" - Sentiment: Positive
+- Review submission form visible
+- "Add a Review" button/section
+- Dealer details card with background styling
+- The browser address bar shows: https://localhost:8000/dealers/1/
+- Reviews section clearly shows the sentiment analysis results
+- The page includes a "Back to Dealers" button
+- User is shown as logged in (welcome message or username visible)

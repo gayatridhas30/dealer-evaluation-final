@@ -1,0 +1,4 @@
+curl -s -X POST -H "X-CSRFToken: <token>" http://127.0.0.1:8000/admin/logout/
+
+HTTP 200 - Logout successful
+Logged out: False

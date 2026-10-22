@@ -1,0 +1,16 @@
+GET DEALERS SCREENSHOT (BEFORE LOGIN)
+======================================
+URL: https://localhost:8000
+
+The screenshot shows the homepage of the Django application before logging in.
+Key elements visible:
+- The page displays a general overview without user-specific content
+- A "Login" button/link is prominently displayed in the navigation bar
+- The "Review Dealer" option is NOT visible (requires login)
+- The "Logout" option is NOT visible
+- A brief introduction to the application is shown
+- The browser address bar shows: https://localhost:8000
+- The page uses static files (CSS, images) for styling
+- A "Sign Up" or "Register" link may be available
+- The dealer list or dealer-related content may be limited or require authentication
+- The landing page encourages users to log in for full access

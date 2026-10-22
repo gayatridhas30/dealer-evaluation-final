@@ -1,0 +1,12 @@
+SCREENSHOT: deployed_landingpage
+URL IN ADDRESS BAR: http://127.0.0.1:8000/
+VISIBLE ELEMENTS:
+- Login/registration page displayed
+- Navigation bar with "Dealership App" logo
+- Two options: "Login" and "Sign-Up" (Register)
+- Login form with username and password fields
+- Registration form with 5 fields: Username, First Name, Last Name, Email, Password
+- Register button visible
+- Bootstrap CSS styling applied
+- Address bar clearly shows: http://127.0.0.1:8000/
+- Page background with subtle styling

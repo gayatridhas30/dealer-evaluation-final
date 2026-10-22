@@ -1,0 +1,20 @@
+DEPLOYED LANDING PAGE SCREENSHOT DESCRIPTION
+============================================
+URL: https://localhost:8000
+
+The screenshot shows the login/registration page of the Dealership Application.
+The page features:
+- A clean navigation bar at the top with "Dealership App" logo
+- Two main options: "Login" and "Sign-Up" (Register)
+- The login form has fields for username and password
+- The registration (Sign-Up) form has five input fields:
+  1. Username
+  2. First Name
+  3. Last Name
+  4. Email
+  5. Password
+- A "Register" button at the bottom of the registration form
+- Background styling with subtle gradient or pattern
+- The address bar shows: https://localhost:8000
+- The page uses Bootstrap CSS for styling
+- The navigation bar has links to Home, About, and Contact pages

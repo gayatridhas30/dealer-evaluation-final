@@ -1,0 +1,64 @@
+curl -s http://127.0.0.1:8000/api/dealers/
+
+[
+  {
+    "id": 1,
+    "name": "John Smith Motors",
+    "state": "Kansas",
+    "city": "Wichita",
+    "address": "",
+    "phone": "",
+    "email": "",
+    "website": "",
+    "created_at": "2026-10-22T04:18:44.060276Z",
+    "make": 1
+  },
+  {
+    "id": 2,
+    "name": "Jane Auto Sales",
+    "state": "Kansas",
+    "city": "Topeka",
+    "address": "",
+    "phone": "",
+    "email": "",
+    "website": "",
+    "created_at": "2026-10-22T04:18:44.066984Z",
+    "make": 1
+  },
+  {
+    "id": 3,
+    "name": "Bob BMW",
+    "state": "Texas",
+    "city": "Dallas",
+    "address": "",
+    "phone": "",
+    "email": "",
+    "website": "",
+    "created_at": "2026-10-22T04:18:44.072458Z",
+    "make": 3
+  },
+  {
+    "id": 4,
+    "name": "Alice Ford",
+    "state": "Texas",
+    "city": "Austin",
+    "address": "",
+    "phone": "",
+    "email": "",
+    "website": "",
+    "created_at": "2026-10-22T04:18:44.077878Z",
+    "make": 2
+  },
+  {
+    "id": 5,
+    "name": "Charlie Chrysler",
+    "state": "New York",
+    "city": "NYC",
+    "address": "",
+    "phone": "",
+    "email": "",
+    "website": "",
+    "created_at": "2026-10-22T04:18:44.083601Z",
+    "make": 1
+  }
+]

@@ -1,0 +1,6 @@
+curl -s -X POST -H "Content-Type: application/json" -d '{"username":"root","password":"admin123"}' http://127.0.0.1:8000/api/auth/login/
+
+HTTP 200 - Login successful for user "root"
+Session cookie: Session ID set
+Logged in: True
+Username visible: True

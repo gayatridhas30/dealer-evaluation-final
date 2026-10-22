@@ -1,0 +1,19 @@
+curl -s http://127.0.0.1:8000/api/makes/
+
+[
+  {
+    "id": 1,
+    "name": "Toyota",
+    "country": "Japan"
+  },
+  {
+    "id": 2,
+    "name": "Ford",
+    "country": "USA"
+  },
+  {
+    "id": 3,
+    "name": "BMW",
+    "country": "Germany"
+  }
+]

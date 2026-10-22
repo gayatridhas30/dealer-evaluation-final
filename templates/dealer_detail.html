@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}{{ dealer.name }} - Dealer Details{% endblock %}
+
+{% block hero %}
+<div class="hero">
+    <h1><i class="fas fa-store"></i> {{ dealer.name }}</h1>
+    <p>{{ dealer.city }}, {{ dealer.state }} | Car Make: {{ dealer.make.name }}</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Dealers</a>
+
+<div class="dealer-detail-card">
+    <div class="detail-header">
+        <h2><i class="fas fa-car"></i> {{ dealer.name }}</h2>
+        <div class="meta"><i class="fas fa-map-marker-alt"></i> {{ dealer.city }}, {{ dealer.state }} | Dealer ID: {{ dealer.id }}</div>
+    </div>
+    <div class="detail-body">
+        <div class="detail-info-grid">
+            <div class="detail-info-item">
+                <div class="label">Car Make</div>
+                <div class="value"><i class="fas fa-industry"></i> {{ dealer.make.name }}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="label">State</div>
+                <div class="value"><i class="fas fa-map"></i> {{ dealer.state }}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="label">City</div>
+                <div class="value"><i class="fas fa-city"></i> {{ dealer.city }}</div>
+            </div>
+            <div class="detail-info-item">
+                <div class="label">Total Reviews</div>
+                <div class="value"><i class="fas fa-star" style="color:#ffc107;"></i> {{ reviews.count }}</div>
+            </div>
+        </div>
+
+        {% if user.is_authenticated %}
+        <a href="/dealers/{{ dealer.id }}/add-review/" class="btn-primary-custom">
+            <i class="fas fa-pen"></i> Write a Review
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+<h2 class="section-title"><i class="fas fa-comments"></i> Reviews ({{ reviews.count }})</h2>
+
+{% for review in reviews %}
+<div class="review-card">
+    <div class="review-header">
+        <span class="reviewer-name"><i class="fas fa-user"></i> {{ review.name }}</span>
+        <span class="review-date">{{ review.created_at|date:"M d, Y" }}</span>
+    </div>
+    <div class="stars">
+        {% for i in "12345" %}
+            {% if forloop.counter <= review.rating %}
+                <i class="fas fa-star"></i>
+            {% else %}
+                <i class="far fa-star"></i>
+            {% endif %}
+        {% endfor %}
+        <span style="color:#666; font-size:0.85rem; margin-left:8px;">{{ review.rating }}/5</span>
+    </div>
+    <p class="comment">{{ review.comment }}</p>
+    {% if review.sentiment %}
+    <div style="margin-top:10px;">
+        <span class="sentiment-badge sentiment-{{ review.sentiment|lower }}">
+            <i class="fas {% if review.sentiment == 'Positive' %}fa-smile{% elif review.sentiment == 'Negative' %}fa-frown{% else %}fa-meh{% endif %}"></i>
+            Sentiment: {{ review.sentiment }}
+        </span>
+    </div>
+    {% endif %}
+</div>
+{% empty %}
+<div class="no-reviews">
+    <i class="fas fa-comment-slash"></i>
+    <p>No reviews yet for this dealer.</p>
+    {% if user.is_authenticated %}
+    <a href="/dealers/{{ dealer.id }}/add-review/" class="btn-primary-custom" style="margin-top:15px;">Be the first to review</a>
+    {% endif %}
+</div>
+{% endfor %}
+{% endblock %}

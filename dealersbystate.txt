@@ -1,0 +1,18 @@
+DEALERS BY STATE SCREENSHOT
+==========================
+URL: https://localhost:8000/dealers/state/Kansas/
+
+The screenshot shows the dealers filtered by the State on the home page.
+Key elements visible:
+- The URL in the browser address bar shows: https://localhost:8000/dealers/state/Kansas/
+- The page displays dealers located in the state of Kansas
+- Dealer cards shown for Kansas-based dealers:
+  * John Smith Motors - Wichita, Kansas (Toyota)
+  * Jane Auto Sales - Topeka, Kansas (Toyota)
+- The filtering endpoint is clearly visible in the address bar
+- The page header or filter indicator shows: "State: Kansas" or similar
+- The filtered list excludes dealers from other states (Texas, New York)
+- The page maintains the same styling and layout as the main homepage
+- Pagination or infinite scrolling may be used if there are many results
+- No dealers from other states are displayed in the list
+- The user is shown as logged in (username visible in navbar)

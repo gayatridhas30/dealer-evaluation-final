@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dealership Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <style>
+        body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background-color: #f4f6f9; }
+        .navbar { background-color: #343a40; padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 100; }
+        .navbar .logo { color: #fff; font-size: 1.5rem; font-weight: bold; text-decoration: none; }
+        .navbar .nav-links { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+        .navbar .nav-links li a { color: #fff; text-decoration: none; transition: 0.3s; }
+        .navbar .nav-links li a.active, .navbar .nav-links li a:hover { color #00adb5; }
+        .container { max-width: 1200px; margin: 80px auto 0; padding: 0 20px; }
+        .about-section { background: white; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .team-member { background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; }
+        .car-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .car-card { background: #e9ecef; padding: 1rem; border-radius: 8px; text-align: center; }
+        footer { text-align: center; padding: 2rem; color: #6c757d; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">Dealership App</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a class="active" href="#about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="about" class="about-section">
+            <h2>About Us</h2>
+            <p>Welcome to the Dealership Evaluation Application. We provide comprehensive information about car dealers, reviews, and sentiment analysis for automotive services.</p>
+            
+            <h3>Our Team</h3>
+            <div class="team-member">
+                <h4>John Doe</h4>
+                <p>Full Stack Developer</p>
+            </div>
+            <div class="team-member">
+                <h4>Jane Smith</h4>
+                <p>Backend Engineer</p>
+            </div>
+            <div class="team-member">
+                <h4>Bob Johnson</h4>
+                <p>Frontend Developer</p>
+            </div>
+            
+            <h3>Car Makes We Support</h3>
+            <div class="car-grid">
+                <div class="car-card">Toyota</div>
+                <div class="car-card">Ford</div>
+                <div class="car-card">BMW</div>
+                <div class="car-card">Chrysler</div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Dealership Application. All rights reserved.</p>
+    </footer>
+</body>
+</html>

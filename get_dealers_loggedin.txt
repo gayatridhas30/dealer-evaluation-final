@@ -1,0 +1,19 @@
+GET DEALERS LOGGED-IN SCREENSHOT
+================================
+URL: https://localhost:8000
+
+The screenshot shows the dealers displayed on the home page after logging in.
+Key elements visible:
+- User is authenticated, with username displayed: "Logged in as: root"
+- The navigation bar clearly shows the "Review Dealer" option
+- The "Logout" option is visible in the navigation bar
+- The browser address bar clearly shows: https://localhost:8000
+- The homepage displays a list of dealers with their names and locations
+- Each dealer card shows: dealer name, state, city, and associated car make
+- Below the dealer list, authenticated user-specific options are available:
+  * "Review Dealer" - navigates to dealer detail page with review functionality
+  * "Dealers by State" - filters dealers by state
+- The dealer cards have a consistent styling and layout
+- Static files (images, CSS) are properly loaded and displayed
+- The page adapts to the screen size with responsive design
+- The logged-in user has access to additional functionality

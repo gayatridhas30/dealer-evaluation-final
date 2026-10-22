@@ -1,0 +1,21 @@
+POSTED REVIEW SCREENSHOT
+=======================
+URL: https://localhost:8000/dealers/1/
+
+The screenshot shows the posted review displayed in the dealer details page.
+Key elements visible:
+- A new review is successfully added to John Smith Motors
+- Review details displayed:
+  * Reviewer name: "New User" (or the name entered)
+  * Rating: 5 stars (or the selected rating)
+  * Comment: "The service was outstanding and the staff was very helpful!"
+  * Sentiment: "Positive" (automatically calculated based on 5-star rating)
+- The review appears in the dealer's review list
+- The reviews section updates dynamically without page reload
+- The browser address bar shows: https://localhost:8000/dealers/1/
+- A success message or toast notification may appear: "Review submitted successfully!"
+- The sentiment analysis result is clearly displayed: "Positive"
+- The average rating for the dealer may update: "Average rating: 4.5/5"
+- The page reflects the new review count: "Total reviews: 3" (updated from previous count)
+- User is authenticated and can see the updated content
+- The dealer detail page refreshes to show the newly added review

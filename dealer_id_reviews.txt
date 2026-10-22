@@ -1,0 +1,20 @@
+DEALER ID + REVIEWS SCREENSHOT
+=============================
+URL: https://localhost:8000/dealers/1/
+
+The screenshot shows the selected dealer details page with reviews.
+Key elements visible:
+- Dealer selected: "John Smith Motors" (ID: 1)
+- Dealer details displayed: name, location (Wichita, Kansas), contact info
+- Associated car make: "Toyota"
+- Reviews section clearly displays:
+  * Review 1: Alice - Rating 5/5 - "Excellent service!" - Sentiment: Positive
+  * Review 2: Bob - Rating 4/5 - "Great experience!" - Sentiment: Positive
+- The "Write a Review" form is available for logged-in users
+- Each review shows the reviewer's name, rating, comment, and sentiment analysis result
+- The browser address bar shows: https://localhost:8000/dealers/1/
+- The page displays the endpoint URL clearly
+- Review cards have star ratings visualization
+- The sentiment indicators (Positive/Neutral/Negative) are color-coded
+- User is authenticated, with options to add new review
+- No reviews section would show if dealer has no reviews

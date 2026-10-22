@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Add Review - {{ dealer.name }}{% endblock %}
+
+{% block hero %}
+<div class="hero">
+    <h1><i class="fas fa-pen-alt"></i> Write a Review</h1>
+    <p>Share your experience with {{ dealer.name }}</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<a href="/dealers/{{ dealer.id }}/" class="back-link"><i class="fas fa-arrow-left"></i> Back to {{ dealer.name }}</a>
+
+<div class="review-form-card">
+    <h3><i class="fas fa-edit"></i> Add Your Review for {{ dealer.name }}</h3>
+
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert-success-custom">
+            <i class="fas fa-check-circle"></i> {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST" action="/dealers/{{ dealer.id }}/add-review/">
+        {% csrf_token %}
+        <input type="hidden" name="dealer" value="{{ dealer.id }}">
+
+        <div class="form-group" style="margin-bottom:18px;">
+            <label style="display:block; margin-bottom:6px; font-weight:600; color:#444;">Your Name</label>
+            <input type="text" name="name" class="form-control-custom" placeholder="Enter your name" value="{{ user.get_full_name|default:user.username }}" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom:18px;">
+            <label style="display:block; margin-bottom:6px; font-weight:600; color:#444;">Rating</label>
+            <div class="star-rating">
+                <input type="radio" id="star5" name="rating" value="5" required>
+                <label for="star5">&#9733;</label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4">&#9733;</label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3">&#9733;</label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2">&#9733;</label>
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1">&#9733;</label>
+            </div>
+            <div style="font-size:0.85rem; color:#888; margin-top:5px;">
+                <span id="rating-display">Select your rating (1-5 stars)</span>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:18px;">
+            <label style="display:block; margin-bottom:6px; font-weight:600; color:#444;">Your Review</label>
+            <textarea name="comment" class="form-control-custom" rows="5" placeholder="Write your review about {{ dealer.name }} here..." required style="min-height:140px;"></textarea>
+        </div>
+
+        <div style="display:flex; gap:15px; align-items:center;">
+            <button type="submit" class="btn-primary-custom" style="padding:12px 40px;">
+                <i class="fas fa-paper-plane"></i> Submit Review
+            </button>
+            <span style="color:#888; font-size:0.85rem;">
+                <i class="fas fa-info-circle"></i> Sentiment will be auto-analyzed based on your rating
+            </span>
+        </div>
+    </form>
+</div>
+
+<div style="text-align:center; margin-top:25px; padding:20px; background:#fff; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.08);">
+    <p style="color:#666; margin-bottom:10px;"><i class="fas fa-car" style="color:#e94560;"></i> {{ dealer.name }} - {{ dealer.city }}, {{ dealer.state }} | Make: {{ dealer.make.name }}</p>
+    <a href="/dealers/{{ dealer.id }}/" class="back-link">View existing reviews →</a>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.querySelectorAll('.star-rating input').forEach(function(input) {
+    input.addEventListener('change', function() {
+        var rating = this.value;
+        var labels = document.getElementById('rating-display');
+        labels.textContent = 'You selected ' + rating + ' star' + (rating > 1 ? 's' : '') + ' - ';
+        if (rating >= 4) {
+            labels.textContent += 'Sentiment: Positive';
+        } else if (rating <= 2) {
+            labels.textContent += 'Sentiment: Negative';
+        } else {
+            labels.textContent += 'Sentiment: Neutral';
+        }
+    });
+});
+</script>
+{% endblock %}

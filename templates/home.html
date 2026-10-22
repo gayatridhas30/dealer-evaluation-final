@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Dealership Application{% endblock %}
+
+{% block hero %}
+<div class="hero">
+    <h1><i class="fas fa-car"></i> Dealership Evaluation Application</h1>
+    <p>Find the best car dealers near you. Read reviews, compare dealers, and make informed decisions.</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<h2 class="section-title"><i class="fas fa-map-marker-alt"></i> Dealers</h2>
+
+<div class="filter-bar">
+    <label for="state-filter"><i class="fas fa-filter"></i> Filter by State:</label>
+    <select id="state-filter" onchange="filterByState(this.value)">
+        <option value="">All States</option>
+        <option value="Kansas">Kansas</option>
+        <option value="Texas">Texas</option>
+        <option value="New York">New York</option>
+    </select>
+    <a href="/" id="show-all-btn" style="display:none;">Show All Dealers</a>
+</div>
+
+<div class="dealer-grid" id="dealer-list">
+    {% for dealer in dealers %}
+    <div class="dealer-card" data-state="{{ dealer.state }}">
+        <div class="card-header">
+            <h3><i class="fas fa-store"></i> {{ dealer.name }}</h3>
+            <div class="location"><i class="fas fa-map-marker-alt"></i> {{ dealer.city }}, {{ dealer.state }}</div>
+        </div>
+        <div class="card-body">
+            <span class="make-badge"><i class="fas fa-industry"></i> {{ dealer.make.name }}</span>
+            <div class="stats">
+                <div class="stat">
+                    <div class="num">{{ dealer.reviews.count }}</div>
+                    <div class="lbl">Reviews</div>
+                </div>
+                <div class="stat">
+                    <div class="num">{% if dealer.reviews.all %}{{ dealer.reviews.all.0.rating }}{% else %}-{% endif %}</div>
+                    <div class="lbl">Rating</div>
+                </div>
+                <div class="stat">
+                    <div class="num">{{ dealer.id }}</div>
+                    <div class="lbl">ID</div>
+                </div>
+            </div>
+            <div class="card-actions">
+                <a href="/dealers/{{ dealer.id }}/" class="btn-view">View Details</a>
+                {% if user.is_authenticated %}
+                <a href="/dealers/{{ dealer.id }}/add-review/" class="btn-review">Review Dealer</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="no-reviews">
+        <i class="fas fa-store"></i>
+        <p>No dealers found.</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% if user.is_authenticated %}
+<div style="text-align:center; margin-top:30px; padding:20px; background:#fff; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.08);">
+    <p style="margin-bottom:15px; color:#666;"><i class="fas fa-user-check" style="color:#e94560;"></i> Welcome back, <strong>{{ user.username }}</strong>! You can review any dealer above.</p>
+    <a href="/dealers/state/Kansas/" class="btn-primary-custom"><i class="fas fa-map"></i> View Dealers by State</a>
+</div>
+{% else %}
+<div style="text-align:center; margin-top:30px; padding:20px; background:#fff; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.08);">
+    <p style="margin-bottom:15px; color:#666;"><i class="fas fa-info-circle" style="color:#0f3460;"></i> Login to review dealers and share your experience.</p>
+    <a href="/admin/login/" class="btn-primary-custom"><i class="fas fa-sign-in-alt"></i> Login to Review Dealers</a>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function filterByState(state) {
+    var cards = document.querySelectorAll('.dealer-card');
+    var showAllBtn = document.getElementById('show-all-btn');
+    cards.forEach(function(card) {
+        if (!state || card.getAttribute('data-state') === state) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    if (state) {
+        showAllBtn.style.display = 'inline-block';
+    } else {
+        showAllBtn.style.display = 'none';
+    }
+}
+</script>
+{% endblock %}

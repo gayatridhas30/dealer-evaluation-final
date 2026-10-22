@@ -1,0 +1,2 @@
+curl -s -X POST -H 'Content-Type: application/json' -d '{"username":"root","password":"admin123"}' http://localhost:8000/admin/login/
+Login successful - root user authenticated

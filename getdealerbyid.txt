@@ -1,0 +1,14 @@
+curl -s http://127.0.0.1:8000/api/dealers/1/
+
+{
+  "id": 1,
+  "name": "John Smith Motors",
+  "state": "Kansas",
+  "city": "Wichita",
+  "address": "",
+  "phone": "",
+  "email": "",
+  "website": "",
+  "created_at": "2026-10-22T04:18:44.060276Z",
+  "make": 1
+}

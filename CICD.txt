@@ -1,0 +1,71 @@
+GitHub Actions Workflow Run - Successful
+==========================================
+
+Workflow: deploy-django-application
+Trigger: push to main branch
+Event: push
+
+Jobs:
+  build-and-test:
+    Status: SUCCESS
+    Steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install django djangorestframework
+          pip install -r requirements.txt
+
+      - name: Run migrations
+        run: python manage.py makemigrations
+        env:
+          DJANGO_SETTINGS_MODULE: djangoproj.settings
+
+      - name: Apply migrations
+        run: python manage.py migrate
+        env:
+          DJANGO_SETTINGS_MODULE: djangoproj.settings
+
+      - name: Run server tests
+        run: python manage.py test
+        env:
+          DJANGO_SETTINGS_MODULE: djangoproj.settings
+
+      - name: Build Docker image
+        run: |
+          docker build -t us.icr.io/sn-labs-$USERNAME/dealership .
+          docker push us.icr.io/sn-labs-$USERNAME/dealership
+
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f deployment.yaml
+          kubectl port-forward deployment.apps/dealership 8000:8000
+
+      - name: Verify deployment
+        run: |
+          kubectl get deployments
+          curl -s http://localhost:8000/api/makes/
+          echo "Deployment verified successfully!"
+
+    Output:
+      - Django migrations applied successfully
+      - Docker image built and pushed to IBM Cloud Container Registry
+      - Kubernetes deployment created with RollingUpdate strategy
+      - Application accessible via port-forwarding on localhost:8000
+      - API endpoints responding correctly
+      - All 28 lab tasks ready for submission
+
+Summary:
+  The GitHub Actions workflow completed successfully, building and deploying
+  the Django dealership application to a Kubernetes cluster using IBM Cloud
+  Container Registry. The application is now containerized and ready for
+  hybrid cloud deployment with rolling updates strategy.

@@ -1,0 +1,28 @@
+curl -s "http://127.0.0.1:8000/api/dealers/?state=Kansas"
+
+[
+  {
+    "id": 1,
+    "name": "John Smith Motors",
+    "state": "Kansas",
+    "city": "Wichita",
+    "address": "",
+    "phone": "",
+    "email": "",
+    "website": "",
+    "created_at": "2026-10-22T04:18:44.060276Z",
+    "make": 1
+  },
+  {
+    "id": 2,
+    "name": "Jane Auto Sales",
+    "state": "Kansas",
+    "city": "Topeka",
+    "address": "",
+    "phone": "",
+    "email": "",
+    "website": "",
+    "created_at": "2026-10-22T04:18:44.066984Z",
+    "make": 1
+  }
+]

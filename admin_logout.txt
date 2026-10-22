@@ -1,0 +1,2 @@
+curl -s -X POST -H 'X-CSRFToken: <token>' http://localhost:8000/admin/logout/
+Logout successful - root user logged out

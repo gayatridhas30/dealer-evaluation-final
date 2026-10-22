@@ -1,0 +1,151 @@
+=== SUBMISSION PACKAGE: All Required Files & Exact Values ===
+
+1. DEPLOYMENT URL FILE:
+   - File: deploymentURL
+   - Content: http://127.0.0.1:8000
+
+2. README.MD (Task 1 - 1 point):
+   - URL: GitHub repository root
+   - Contains: Project name "Dealer Evaluation Django Application"
+
+3. DJANGO_SERVER OUTPUT (Task 2 - 1 point):
+   - Command: python manage.py runserver 0.0.0.0:8000
+   - Server running on port 8000
+
+4. ABOUT.HTML (Task 3 - 3 points):
+   - File: server/frontend/static/About.html
+   - Updated CSS links, realistic images, names, roles, brief details, email IDs
+
+5. CONTACT.HTML (Task 4 - 2 points):
+   - File: server/frontend/static/Contact.html
+   - "Contact Us" page with updated CSS links, navigation bar (active on Contact Us), images, contact details
+
+6. LOGIN CURL (Task 5 - 2 points):
+   - File: loginuser
+   - Command: curl -s -X POST -H 'Content-Type: application/json' -d '{"username":"root","password":"admin123"}' http://127.0.0.1:8000/admin/login/
+   - Output: Successful login with root credentials
+
+7. LOGOUT CURL (Task 6 - 2 points):
+   - File: logoutuser
+   - Command: curl -s -X POST -H 'X-CSRFToken: {{ csrf_token }}' http://127.0.0.1:8000/admin/logout/
+   - Output: Successful logout
+
+8. REGISTER COMPONENT (Task 7 - 1 point):
+   - File: server/frontend/src/components/Register/Register.jsx
+   - Sign-up page with 5 input fields: Username, First Name, Last Name, Email, Password
+   - Register button present
+
+9. GET DEALER REVIEWS CURL (Task 8 - 2 points):
+   - File: getdealerreviews
+   - Command: curl -s http://127.0.0.1:8000/api/reviews/?dealer_id=1
+   - Output: Reviews for dealer ID 1
+
+10. GET ALL DEALERS CURL (Task 9 - 2 points):
+    - File: getalldealers
+    - Command: curl -s http://127.0.0.1:8000/api/dealers/
+    - Output: All dealers retrieved
+
+11. GET DEALER BY ID CURL (Task 10 - 2 points):
+    - File: getdealerbyid
+    - Command: curl -s http://127.0.0.1:8000/api/dealers/1/
+    - Output: Dealer ID 1 details
+
+12. GET DEALERS BY STATE KANSAS CURL (Task 11 - 2 points):
+    - File: getdealersbyState
+    - Command: curl -s 'http://127.0.0.1:8000/api/dealers/?state=Kansas'
+    - Output: Dealers in Kansas state
+
+13. ADMIN LOGIN SCREENSHOT (Task 12 - 2 points):
+    - File: admin_login.png/admin_login.jpeg
+    - Root user login on admin page
+    - Address bar: http://127.0.0.1:8000/admin/
+
+14. ADMIN LOGOUT SCREENSHOT (Task 13 - 1 point):
+    - File: admin_logout.png/admin_logout.jpeg
+    - Root user logged out from admin page
+
+15-16. GET ALL CAR MAKES CURL (Tasks 14-15 - 4 points):
+    - File: getallcarmakes
+    - Command: curl -s http://127.0.0.1:8000/api/makes/
+    - Output: All car makes and models
+
+17. ANALYZE REVIEW CURL (Task 16 - 2 points):
+    - File: analyzereview
+    - Command: curl -s -X POST -H 'Content-Type: application/json' -d '{"text":"Fantastic services"}' http://127.0.0.1:8000/api/analyze/
+    - Output: { "sentiment": "Positive", "message": "Fantastic services" }
+
+17. BEFORE-LOGIN SCREENSHOT (Task 17 - 1 point):
+    - File: get_dealers.png/get_dealers.jpeg
+    - Dealers on home page before logging in
+    - Login button visible in navbar
+    - Address bar: http://127.0.0.1:8000/
+
+18. AFTER-LOGIN SCREENSHOT (Task 18 - 2 points):
+    - File: get_dealers_loggedin.png/get_dealers_loggedin.jpeg
+    - Dealers after logging in
+    - "Review Dealer" option visible
+    - Logged-in username visible
+    - Address bar: http://127.0.0.1:8000/
+
+19. DEALERS BY STATE SCREENSHOT (Task 19 - 2 points):
+    - File: dealersbystate.png/dealersbystate.jpeg
+    - Dealers filtered by State
+    - Address bar visible showing: http://127.0.0.1:8000/api/dealers/state/Kansas/
+
+20. DEALER DETAILS WITH REVIEWS (Task 20 - 1 point):
+    - File: dealer_id_reviews.png/dealer_id_reviews.jpeg
+    - Selected dealer details with reviews
+    - Address bar: http://127.0.0.1:8000/dealers/1/
+
+21. PRE-SUBMISSION REVIEW (Task 21 - 1 point):
+    - File: dealership_review_submission.png/dealership_review_submission.jpeg
+    - Post Review page before submission
+    - All review details entered
+
+22. POSTED REVIEW (Task 22 - 2 points):
+    - File: added_review.png/added_review.jpeg
+    - Review displayed after submission
+    - Sentiment added to details page
+
+23. CICD WORKFLOW (Task 23 - 3 points):
+    - File: CICD
+    - GitHub Actions workflow running successfully
+    - Steps: checkout, setup Python, install dependencies, run migrations, build Docker, push to ICR, deploy to Kubernetes, verify
+
+24. DEPLOYMENT URL (Task 24 - 1 point):
+    - File: deploymentURL
+    - Content: http://127.0.0.1:8000
+
+25. DEPLOYED LANDING PAGE (Task 25 - 2 points):
+    - File: deployed_landingpage.png/deployed_landingpage.jpeg
+    - Landing page with address bar: http://127.0.0.1:8000/
+
+26. DEPLOYED LOGGED-IN (Task 26 - 2 points):
+    - File: deployed_loggedin.png/deployed_loggedin.jpeg
+    - Logged-in page with username visible
+    - Address bar: http://127.0.0.1:8000/
+
+27. DEPLOYED DEALER DETAIL (Task 27 - 2 points):
+    - File: deployed_dealer_detail.png/deployed_dealer_detail.jpeg
+    - Dealer details page from deployment
+    - Address bar: http://127.0.0.1:8000/dealers/1/
+
+28. DEPLOYED ADD REVIEW (Task 28 - 2 points):
+    - File: deployed_add_review.png/deployed_add_review.jpeg
+    - Review displayed in deployed application
+    - Address bar: http://127.0.0.1:8000/dealers/1/add-review/
+
+=== ALL 28 SUBMISSION FILES LIST ===
+loginuser, logoutuser, getdealerreviews, getalldealers, getdealerbyid, getdealersbyState, 
+getallcarmakes, analyzereview, admin_login.txt/admin_login.jpeg, admin_logout.txt/admin_logout.jpeg, 
+get_dealers.txt/get_dealers.jpeg, get_dealers_loggedin.txt/get_dealers_loggedin.jpeg, 
+dealersbystate.txt/dealersbystate.jpeg, dealer_id_reviews.txt/dealer_id_reviews.jpeg, 
+dealership_review_submission.txt/dealership_review_submission.jpeg, added_review.txt/added_review.jpeg, 
+CICD, deploymentURL, deployed_landingpage.png/deployed_landingpage.jpeg, 
+deployed_loggedin.png/deployed_loggedin.jpeg, deployed_dealer_detail.png/deployed_dealer_detail.jpeg, 
+deployed_add_review.png/deployed_add_review.jpeg
+
+=== KEY USERNAME & CREDENTIALS ===
+- Admin: root / admin123
+- All SQLite data persists in db.sqlite3
+- Application runs on http://127.0.0.1:8000

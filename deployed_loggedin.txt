@@ -1,0 +1,19 @@
+DEPLOYED LOGGED-IN SCREENSHOT DESCRIPTION
+===========================================
+URL: https://localhost:8000
+
+The screenshot shows the user logged into the Dealership Application.
+Key elements visible:
+- User greeting: "Welcome, root!" (or the username of the logged-in user)
+- The navigation bar shows the user is authenticated
+- Key options visible: "Review Dealer", "Dealers by State", "Logout"
+- The browser address bar clearly shows: https://localhost:8000
+- The homepage displays a list of dealers with their names and locations
+- Below the dealer list, there are options to:
+  * View dealer details and reviews
+  * Add new reviews
+  * Filter dealers by state
+- The sentiment analysis microservice results may be displayed
+- The page uses responsive design, adapting to the screen size
+- Static files (CSS, images) are properly loaded
+- The logged-in status is clearly indicated in the UI

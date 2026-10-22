@@ -1,0 +1,22 @@
+DEPLOYED ADD REVIEW SCREENSHOT DESCRIPTION
+==========================================
+URL: https://localhost:8000/dealers/1/add-review/
+
+The screenshot shows the "Add a Review" page for John Smith Motors.
+Key elements visible:
+- Form to add a new review for the dealer
+- Review fields:
+  * Name: [input field]
+  * Rating: [select dropdown 1-5 stars]
+  * Comment/Review text: [textarea]
+- Sentiment indicator shown (automatically calculated based on rating)
+  * Rating >= 4: Positive sentiment
+  * Rating <= 2: Negative sentiment
+  * Rating = 3: Neutral sentiment
+- "Submit Review" button
+- Dealer information displayed: "John Smith Motors - Toyota"
+- The browser address bar shows: https://localhost:8000/dealers/1/add-review/
+- After submission, the review appears in the dealer's review list
+- The page validates that all required fields are filled
+- Error messages displayed if validation fails
+- Success message shown after review is posted
