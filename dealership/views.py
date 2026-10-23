@@ -137,10 +137,30 @@ def analyze_review(request):
 
 @require_GET
 def get_carmakes(request):
-    """GET /getCarMakes - All car makes with nested models"""
+    """GET /getCarMakes - All car makes with nested CarModels"""
     makes = CarMake.objects.prefetch_related('models').all()
-    serializer = CarMakeSerializer(makes, many=True)
-    return JsonResponse(serializer.data, safe=False)
+    car_makes = []
+    car_models = []
+    for make in makes:
+        car_makes.append({
+            'id': make.id,
+            'make': make.name,
+            'name': make.name,
+            'country': make.country,
+        })
+        for model in make.models.all():
+            car_models.append({
+                'make': make.name,
+                'model': model.name,
+                'name': model.name,
+                'year': model.year,
+            })
+    return JsonResponse({
+        'CarMakes': car_makes,
+        'CarModels': car_models,
+        'total_makes': len(car_makes),
+        'total_models': len(car_models),
+    })
 
 
 # ===== DRF ViewSets (kept for API compatibility) =====

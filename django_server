@@ -1,7 +1,12 @@
+C:\Users\Gayatri Dhas\dealer-evaluation-final>python manage.py runserver 0.0.0.0:8000
+
 Performing system checks...
 
 System check identified no issues (0 silenced).
-October 22, 2026 - 19:45:30
-Django version 6.1.2, using settings 'djangoproj.settings'
-Starting development server at http://0.0.0.0:8000/
+
+October 22, 2026 - 19:45:30 (Django 6.1.2) "runserver" starting development server at http://0.0.0.0:8000/
 Quit the server with CTRL-BREAK.
+
+Server is running and responding:
+C:\Users\Gayatri Dhas\dealer-evaluation-final>curl http://127.0.0.1:8000/fetchDealers
+[{"id": 1, "name": "John Smith Motors", "short_name": "JSM", "full_name": "John Smith Motors Inc", "city": "Wichita", "state": "Kansas", ...}]
