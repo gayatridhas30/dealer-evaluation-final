@@ -1,7 +1,3 @@
-curl -s -b cookies.txt -X POST -d "csrfmiddlewaretoken=EyOWwDiDyaU5H2l2AeYaxW8rojc8sOgJ305nMYUBidvNlhkJDV9iPSoTNXFJ5wVR" http://127.0.0.1:8000/admin/logout/
+curl -s http://127.0.0.1:8000/djangoapp/logout
 
-HTTP/1.1 200 OK
-
-<!-- Django administration -->
-<!-- Logged out -->
-<!-- 'Log in' button visible: Yes -->
+{"userName": "root", "status": "logged out"}

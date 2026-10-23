@@ -1,19 +1,55 @@
-curl -s http://127.0.0.1:8000/api/makes/
+curl -s http://127.0.0.1:8000/getCarMakes
 
 [
   {
-    "id": 1,
+    "id": 4,
     "name": "Toyota",
-    "country": "Japan"
+    "country": "Japan",
+    "models": [
+      {
+        "id": 1,
+        "name": "Camry",
+        "year": 2023
+      },
+      {
+        "id": 2,
+        "name": "Corolla",
+        "year": 2023
+      }
+    ]
   },
   {
-    "id": 2,
+    "id": 5,
     "name": "Ford",
-    "country": "USA"
+    "country": "USA",
+    "models": [
+      {
+        "id": 3,
+        "name": "Mustang",
+        "year": 2023
+      },
+      {
+        "id": 4,
+        "name": "F-150",
+        "year": 2023
+      }
+    ]
   },
   {
-    "id": 3,
+    "id": 6,
     "name": "BMW",
-    "country": "Germany"
+    "country": "Germany",
+    "models": [
+      {
+        "id": 5,
+        "name": "X5",
+        "year": 2023
+      },
+      {
+        "id": 6,
+        "name": "3 Series",
+        "year": 2023
+      }
+    ]
   }
 ]

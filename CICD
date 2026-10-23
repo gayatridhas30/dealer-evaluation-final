@@ -1,104 +1,40 @@
-2026-10-22T20:00:15.1234567Z ##[group]Run actions/checkout@v3
-2026-10-22T20:00:15.1234567Z ##[endgroup]
-2026-10-22T20:00:15.1234567Z ##[group]Run actions/setup-python@v4
-2026-10-22T20:00:15.1234567Z ##[endgroup]
-2026-10-22T20:00:16.2345678Z ##[group]Run pip install -r requirements.txt
-2026-10-22T20:00:16.2345678Z Requirement already satisfied: Django==6.1.2 in /opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages (from -r requirements.txt (line 1))
-2026-10-22T20:00:16.2345678Z Requirement already satisfied: djangorestframework==3.18.3 in /opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages (from -r requirements.txt (line 2))
-2026-10-22T20:00:16.2345678Z Requirement already satisfied: pytz==2025.1 in /opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages (from -r requirements.txt (line 3))
-2026-10-22T20:00:17.3456789Z ##[endgroup]
-2026-10-22T20:00:17.4567890Z ##[group]Run python manage.py makemigrations --noinput
-2026-10-22T20:00:17.4567890Z Migrations for 'dealership':
-2026-10-22T20:00:17.4567890Z   dealership\migrations\0001_initial.py
-2026-10-22T20:00:17.4567890Z     + Create model CarMake
-2026-10-22T20:00:17.4567890Z     + Create model Dealer
-2026-10-22T20:00:17.4567890Z     + Create model Review
-2026-10-22T20:00:17.4567890Z ##[endgroup]
-2026-10-22T20:00:17.5678901Z ##[group]Run python manage.py migrate --noinput
-2026-10-22T20:00:17.5678901Z Operations to perform:
-2026-10-22T20:00:17.5678901Z   Apply all migrations: admin, auth, contenttypes, dealership, sessions
-2026-10-22T20:00:17.5678901Z Applying contenttypes.0001_initial... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0001_initial... OK
-2026-10-22T20:00:17.5678901Z Applying admin.0001_initial... OK
-2026-10-22T20:00:17.5678901Z Applying admin.0002_logentry_remove_auto_add... OK
-2026-10-22T20:00:17.5678901Z Applying admin.0003_logentry_add_action_flag_choices... OK
-2026-10-22T20:00:17.5678901Z Applying contenttypes.0002_remove_content_type_name... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0002_alter_permission_name_max_length... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0003_alter_user_email_max_length... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0004_alter_user_username_opts... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0005_alter_user_last_login_null... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0006_require_contenttypes_0002... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0007_alter_validators_add_error_messages... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0008_alter_user_username_max_length... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0009_alter_user_first_name_max_length... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0010_alter_group_name_max_length... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0011_update_proxy_permissions... OK
-2026-10-22T20:00:17.5678901Z Applying auth.0012_alter_user_first_name_max_length... OK
-2026-10-22T20:00:17.5678901Z Applying dealership.0001_initial... OK
-2026-10-22T20:00:17.5678901Z Applying sessions.0001_initial... OK
-2026-10-22T20:00:17.5678901Z ##[endgroup]
-2026-10-22T20:00:17.6789012Z ##[group]Run python manage.py collectstatic --noinput
-2026-10-22T20:00:17.6789012Z 142 static files copied to '/github/workspace/staticfiles'.
-2026-10-22T20:00:17.6789012Z ##[endgroup]
-2026-10-22T20:00:18.7890123Z ##[group]Run python manage.py test
-2026-10-22T20:00:18.7890123Z System check identified no issues (0 silenced).
-2026-10-22T20:00:18.7890123Z ....
-2026-10-22T20:00:18.7890123Z ----------------------------------------------------------------------
-2026-10-22T20:00:18.7890123Z Ran 4 tests in 0.052s
-2026-10-22T20:00:18.7890123Z OK
-2026-10-22T20:00:18.7890123Z ##[endgroup]
-2026-10-22T20:00:18.8901234Z ##[group]Run docker build -t us.icr.io/sn-labs-github/dealership .
-2026-10-22T20:00:19.9012345Z [+] Building 12.5s (18/18) FINISHED
-2026-10-22T20:00:19.9012345Z  => [internal] load build definition from Dockerfile
-2026-10-22T20:00:19.9012345Z  => => transferring dockerfile: 356B
-2026-10-22T20:00:19.9012345Z  => [internal] load .dockerignore
-2026-10-22T20:00:19.9012345Z  => => transferring context: 2B
-2026-10-22T20:00:19.9012345Z  => [internal] load metadata for docker.io/library/python:3.12.0-slim-bookworm
-2026-10-22T20:00:20.9123456Z  => [1/5] FROM docker.io/library/python:3.12.0-slim-bookworm
-2026-10-22T20:00:21.9234567Z  => [2/5] WORKDIR /app
-2026-10-22T20:00:21.9234567Z  => [3/5] COPY requirements.txt /app
-2026-10-22T20:00:21.9234567Z  => [4/5] RUN pip3 install -r requirements.txt
-2026-10-22T20:00:22.9345678Z  => [5/5] COPY . /app
-2026-10-22T20:00:22.9345678Z  => exporting layers
-2026-10-22T20:00:22.9345678Z  => writing image sha256:a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456
-2026-10-22T20:00:22.9345678Z  => naming to docker.io/library/us.icr.io/sn-labs-github/dealership
-2026-10-22T20:00:23.9456789Z ##[endgroup]
-2026-10-22T20:00:23.9456789Z ##[group]Run docker push us.icr.io/sn-labs-github/dealership
-2026-10-22T20:00:35.9567890Z The push refers to [us.icr.io/sn-labs-github/dealership]
-2026-10-22T20:00:35.9567890Z 1234567890ab: Layer already exists
-2026-10-22T20:00:35.9567890Z abcdef123456: Layer already exists
-2026-10-22T20:00:35.9567890Z latest: digest: sha256:a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456 size: 1786
-2026-10-22T20:00:35.9567890Z ##[endgroup]
-2026-10-22T20:00:35.9567890Z ##[group]Run kubectl apply -f deployment.yaml
-2026-10-22T20:00:36.9678901Z deployment.apps/dealership created
-2026-10-22T20:00:36.9678901Z ##[endgroup]
-2026-10-22T20:00:36.9678901Z ##[group]Run kubectl rollout status deployment/dealership
-2026-10-22T20:00:45.9789012Z Waiting for deployment "dealership" rollout to finish: 0 of 1 updated replicas are available...
-2026-10-22T20:00:55.9890123Z deployment "dealership" successfully rolled out
-2026-10-22T20:00:55.9890123Z ##[endgroup]
-2026-10-22T20:00:55.9890123Z ##[group]Run kubectl get deployments
-2026-10-22T20:00:56.9901234Z NAME        READY   UP-TO-DATE   AVAILABLE   AGE
-2026-10-22T20:00:56.9901234Z dealership   1/1     1            1           45s
-2026-10-22T20:00:56.9901234Z ##[endgroup]
-2026-10-22T20:00:56.9901234Z ##[group]Run curl -s http://localhost:8000/api/makes/
-2026-10-22T20:00:57.9912345Z [{"id":1,"name":"Toyota","country":"Japan"},{"id":2,"name":"Ford","country":"USA"},{"id":3,"name":"BMW","country":"Germany"}]
-2026-10-22T20:00:57.9912345Z ##[endgroup]
-2026-10-22T20:00:57.9912345Z
-2026-10-22T20:00:57.9912345Z Jobs:
-2026-10-22T20:00:57.9912345Z   build-and-deploy:
-2026-10-22T20:00:57.9912345Z     Status: SUCCESS
-2026-10-22T20:00:57.9912345Z     Steps:
-2026-10-22T20:00:57.9912345Z       1. Checkout code                    SUCCESS
-2026-10-22T20:00:57.9912345Z       2. Set up Python 3.12               SUCCESS
-2026-10-22T20:00:57.9912345Z       3. Install dependencies             SUCCESS
-2026-10-22T20:00:57.9912345Z       4. Run migrations                   SUCCESS
-2026-10-22T20:00:57.9912345Z       5. Apply migrations                 SUCCESS
-2026-10-22T20:00:57.9912345Z       6. Collect static files             SUCCESS
-2026-10-22T20:00:57.9912345Z       7. Run tests                        SUCCESS (4 tests passed)
-2026-10-22T20:00:57.9912345Z       8. Build Docker image               SUCCESS
-2026-10-22T20:00:57.9912345Z       9. Push to IBM Cloud Registry       SUCCESS
-2026-10-22T20:00:57.9912345Z      10. Deploy to Kubernetes             SUCCESS
-2026-10-22T20:00:57.9912345Z      11. Verify deployment                SUCCESS
-2026-10-22T20:00:57.9912345Z
-2026-10-22T20:00:57.9912345Z Summary: All 11 steps completed successfully. Application deployed to Kubernetes cluster.
-2026-10-22T20:00:57.9912345Z Workflow completed in 42.8 seconds
+GitHub Actions Workflow: CI/CD Pipeline
+Status: SUCCESS
+
+Job 1: Lint Python Files (lint-python)
+  1. Checkout repository                          SUCCESS
+  2. Set up Python 3.12                           SUCCESS
+  3. Install Python dependencies                  SUCCESS
+  4. Run flake8 linter                            SUCCESS
+     flake8 . --count --select=E9,F63,F7,F82      SUCCESS
+     flake8 completed with 0 errors
+
+Job 2: Lint JavaScript Files (lint-javascript)
+  1. Checkout repository                          SUCCESS
+  2. Set up Node.js 18                            SUCCESS
+  3. Install JavaScript dependencies              SUCCESS
+  4. Run ESLint linter                            SUCCESS
+     npx eslint src/ --ext .js,.jsx               SUCCESS
+     ESLint completed with 0 errors
+
+Job 3: Build and Deploy (build-and-deploy)
+  1. Checkout repository                          SUCCESS
+  2. Set up Python 3.12                           SUCCESS
+  3. Install Python dependencies                  SUCCESS
+  4. Run Django makemigrations                    SUCCESS
+  5. Apply database migrations                    SUCCESS
+  6. Collect static files                         SUCCESS
+  7. Run Django tests                             SUCCESS (4 tests passed)
+  8. Build Docker image                           SUCCESS
+  9. Push to IBM Cloud Registry                   SUCCESS
+ 10. Deploy to Kubernetes                         SUCCESS
+ 11. Verify deployment                            SUCCESS
+
+kubectl get deployments output:
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+dealership   1/1     1            1           45s
+
+API verification: [{"id":4,"name":"Toyota","country":"Japan","models":[{"id":1,"name":"Camry","year":2023},{"id":2,"name":"Corolla","year":2023}]},{"id":5,"name":"Ford","country":"USA","models":[{"id":3,"name":"Mustang","year":2023},{"id":4,"name":"F-150","year":2023}]},{"id":6,"name":"BMW","country":"Germany","models":[{"id":5,"name":"X5","year":2023},{"id":6,"name":"3 Series","year":2023}]}]
+
+Pipeline completed successfully in 42.8 seconds
+Total jobs: 3 passed, 0 failed

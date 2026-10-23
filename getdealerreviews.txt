@@ -1,40 +1,30 @@
-curl -s http://127.0.0.1:8000/api/dealers/1/reviews/
+curl -s http://127.0.0.1:8000/fetchDealerReviews/1
 
 [
   {
-    "id": 1,
+    "id": 11,
+    "dealer": 1,
     "name": "Alice",
     "rating": 5,
     "comment": "Excellent service!",
     "sentiment": "Positive",
-    "created_at": "2026-10-22T04:18:44.088674Z",
-    "dealer": 1
+    "purchase": "Camry",
+    "purchase_date": "2023-06-15",
+    "car_make": "Toyota",
+    "car_model": "Camry",
+    "car_year": 2023
   },
   {
-    "id": 2,
+    "id": 12,
+    "dealer": 1,
     "name": "Bob",
     "rating": 4,
     "comment": "Great experience!",
     "sentiment": "Positive",
-    "created_at": "2026-10-22T04:18:44.094008Z",
-    "dealer": 1
-  },
-  {
-    "id": 7,
-    "name": "John Doe",
-    "rating": 5,
-    "comment": "Fantastic services",
-    "sentiment": "Positive",
-    "created_at": "2026-10-22T14:21:16.340406Z",
-    "dealer": 1
-  },
-  {
-    "id": 8,
-    "name": "Test User",
-    "rating": 5,
-    "comment": "Amazing experience!",
-    "sentiment": "Positive",
-    "created_at": "2026-10-22T14:32:37.953732Z",
-    "dealer": 1
+    "purchase": "Corolla",
+    "purchase_date": "2023-07-20",
+    "car_make": "Toyota",
+    "car_model": "Corolla",
+    "car_year": 2023
   }
 ]

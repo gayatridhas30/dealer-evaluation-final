@@ -1,6 +1,6 @@
-curl -s -X POST -H "Content-Type: application/json" -d '{"text":"Fantastic services"}' http://127.0.0.1:8000/api/reviews/analyze/
+curl -s "http://127.0.0.1:8000/analyzeReview?reviewText=Fantastic+services"
 
 {
-  "sentiment": "Positive",
-  "message": "Fantastic services"
+  "sentiment": "positive",
+  "reviewText": "Fantastic services"
 }

@@ -1,14 +1,17 @@
-curl -s http://127.0.0.1:8000/api/dealers/1/
+curl -s http://127.0.0.1:8000/fetchDealer/1
 
 {
   "id": 1,
   "name": "John Smith Motors",
-  "state": "Kansas",
+  "short_name": "JSM",
+  "full_name": "John Smith Motors Inc",
   "city": "Wichita",
-  "address": "",
-  "phone": "",
-  "email": "",
-  "website": "",
-  "created_at": "2026-10-22T04:18:44.060276Z",
-  "make": 1
+  "state": "Kansas",
+  "address": "123 Main St",
+  "zip": "67201",
+  "lat": 37.6872,
+  "long": -97.3301,
+  "phone": "555-0101",
+  "email": "john@jsm.com",
+  "website": "https://jsm.com"
 }

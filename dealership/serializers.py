@@ -1,20 +1,30 @@
 from rest_framework import serializers
-from .models import CarMake, Dealer, Review
+from .models import CarMake, CarModel, Dealer, Review
+
+
+class CarModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CarModel
+        fields = ['id', 'name', 'year']
 
 
 class CarMakeSerializer(serializers.ModelSerializer):
+    models = CarModelSerializer(many=True, read_only=True)
+
     class Meta:
         model = CarMake
-        fields = '__all__'
+        fields = ['id', 'name', 'country', 'models']
 
 
 class DealerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dealer
-        fields = '__all__'
+        fields = ['id', 'name', 'short_name', 'full_name', 'city', 'state',
+                  'address', 'zip', 'lat', 'long', 'phone', 'email', 'website']
 
 
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
-        fields = '__all__'
+        fields = ['id', 'dealer', 'name', 'rating', 'comment', 'sentiment',
+                  'purchase', 'purchase_date', 'car_make', 'car_model', 'car_year']

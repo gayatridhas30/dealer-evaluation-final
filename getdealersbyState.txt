@@ -1,28 +1,34 @@
-curl -s "http://127.0.0.1:8000/api/dealers/?state=Kansas"
+curl -s http://127.0.0.1:8000/fetchDealers/Kansas
 
 [
   {
     "id": 1,
     "name": "John Smith Motors",
-    "state": "Kansas",
+    "short_name": "JSM",
+    "full_name": "John Smith Motors Inc",
     "city": "Wichita",
-    "address": "",
-    "phone": "",
-    "email": "",
-    "website": "",
-    "created_at": "2026-10-22T04:18:44.060276Z",
-    "make": 1
+    "state": "Kansas",
+    "address": "123 Main St",
+    "zip": "67201",
+    "lat": 37.6872,
+    "long": -97.3301,
+    "phone": "555-0101",
+    "email": "john@jsm.com",
+    "website": "https://jsm.com"
   },
   {
     "id": 2,
     "name": "Jane Auto Sales",
-    "state": "Kansas",
+    "short_name": "JAS",
+    "full_name": "Jane Auto Sales LLC",
     "city": "Topeka",
-    "address": "",
-    "phone": "",
-    "email": "",
-    "website": "",
-    "created_at": "2026-10-22T04:18:44.066984Z",
-    "make": 1
+    "state": "Kansas",
+    "address": "456 Oak Ave",
+    "zip": "66601",
+    "lat": 39.0473,
+    "long": -95.6752,
+    "phone": "555-0102",
+    "email": "jane@jas.com",
+    "website": "https://jas.com"
   }
 ]
