@@ -1,3 +1,8 @@
+/**
+ * Sign-Up Page Component (Task 7)
+ * Form fields: Username, First Name, Last Name, Email, Password
+ * Includes a "Register" submit button that POSTs to the registration API.
+ */
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Register.css';

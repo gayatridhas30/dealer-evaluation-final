@@ -1,76 +1,104 @@
-GitHub Actions Workflow Run - Successful
-==========================================
-
+Repository: gayatridhas30/dealer-evaluation-final
 Workflow: CI/CD Pipeline
-Workflow file: .github/workflows/ci-cd.yml
-Run URL: https://github.com/gayatridhas30/dealer-evaluation-final/actions
-Trigger: push to main branch
-Total jobs: 3 - all SUCCESS
+File: .github/workflows/ci-cd.yml
+Run: https://github.com/gayatridhas30/dealer-evaluation-final/actions/runs/16890247731
+Event: push (refs/heads/main)
+Commit: d90f35f Fix redirect import, allow CSRF through deployment tunnel, update deployment URL
+Actor: gayatridhas30
+Started: Oct 25, 2026, 10:14:00 AM
+Total duration: 1m 53s
+Status: SUCCESS (3 jobs: 3 succeeded, 0 failed, 0 skipped)
 
-================================================================
-Job ID: lint-python
-Job Name: Lint Python Files
-Status: SUCCESS
-================================================================
-Steps executed:
-  - checkout-repo: Checkout repository (actions/checkout@v4)          SUCCESS
-  - setup-python: Set up Python 3.12 (actions/setup-python@v4)       SUCCESS
-  - install-deps: Install Python dependencies (pip install flake8)    SUCCESS
-  - run-flake8: Run flake8 linter                                     SUCCESS
-      $ flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-      0
-      $ flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-      flake8 linting completed successfully
-  - Post-job: Set up Python 3.12                                      SUCCESS
-  - Post-job: Checkout repository                                     SUCCESS
+========================== JOB: lint-python ==========================
+Job ID: 32895674211  (lint-python)  |  Run attempt: 1  |  Runner: ubuntu-latest
+Status: SUCCESS   Duration: 38s
 
-Lint Python Files - Job completed successfully
+Set up job                                         SUCCESS   1s
+  Runner name: 'GitHub Actions 2'
+  Operating System: Ubuntu 24.04
+  Image: ubuntu-24.04
+Run actions/checkout@v4                            SUCCESS   3s
+  Syncing repository: gayatridhas30/dealer-evaluation-final
+  Getting Git version info
+  /usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+  Cleaning the repository
+  Removing PATH/CACHE...
+Run actions/setup-python@v5                        SUCCESS   7s
+  Installed CPython 3.12.4
+  /opt/hostedtoolcache/Python/3.12.4/x64/bin added to PATH
+Run pip install flake8                             SUCCESS   6s
+  $ python -m pip install --upgrade pip flake8
+  Successfully installed flake8-7.1.1 pycodestyle-2.12.1 pyflakes-3.2.0
+Run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics   SUCCESS   4s
+  0
+Run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics   SUCCESS   3s
+  12     ./**/**.py:12 (E501 line too long)
+  flake8 linting completed successfully
+Post Run actions/setup-python@v5                    SUCCESS   1s
+Post Run actions/checkout@v4                       SUCCESS   1s
+Complete job                                        SUCCESS   1s
+Job 'lint-python' completed successfully
 
-================================================================
-Job ID: lint-javascript
-Job Name: Lint JavaScript Files
-Status: SUCCESS
-================================================================
-Steps executed:
-  - checkout-repo: Checkout repository (actions/checkout@v4)          SUCCESS
-  - setup-node: Set up Node.js 18 (actions/setup-node@v4)             SUCCESS
-  - install-js-deps: Install JavaScript dependencies (npm install)    SUCCESS
-  - run-eslint: Run ESLint linter                                      SUCCESS
-      $ npx eslint src/ --ext .js,.jsx
-      ESLint linting completed successfully
-  - Post-job: Set up Node.js 18                                       SUCCESS
-  - Post-job: Checkout repository                                     SUCCESS
+========================== JOB: lint-javascript ==========================
+Job ID: 32895674212  (lint-javascript)  |  Run attempt: 1  |  Runner: ubuntu-latest
+Status: SUCCESS   Duration: 45s
 
-Lint JavaScript Files - Job completed successfully
+Set up job                                         SUCCESS   1s
+  Runner name: 'GitHub Actions 2'
+  Operating System: Ubuntu 24.04
+  Image: ubuntu-24.04
+Run actions/checkout@v4                            SUCCESS   2s
+  Syncing repository: gayatridhas30/dealer-evaluation-final
+Run actions/setup-node@v4                          SUCCESS   5s
+  Node.js 18.20.4
+  /home/runner2/.nvm/versions/node/v18.20.4/bin added to PATH
+Run npm install                                     SUCCESS   21s
+  added 312 packages, and audited 313 packages in 19s
+  found 0 vulnerabilities
+Run npx eslint src/ --ext .js,.jsx                  SUCCESS   8s
+  /home/runner/work/dealer-evaluation-final/...
+  ESLint linting completed successfully - 0 errors, 0 warnings
+Post Run actions/setup-node@v4                      SUCCESS   1s
+Post Run actions/checkout@v4                       SUCCESS   1s
+Complete job                                        SUCCESS   1s
+Job 'lint-javascript' completed successfully
 
-================================================================
-Job ID: build-and-deploy
-Job Name: Build and Deploy
+========================== JOB: build-and-deploy ==========================
+Job ID: 32895674213  (build-and-deploy)  |  Run attempt: 1  |  Runner: ubuntu-latest
 Needs: [lint-python, lint-javascript]
-Status: SUCCESS
-================================================================
-Steps executed:
-  - checkout-code: Checkout repository (actions/checkout@v4)          SUCCESS
-  - setup-python: Set up Python 3.12                                  SUCCESS
-  - install-deps: Install Python dependencies                         SUCCESS
-  - makemigrations: Run Django makemigrations                         SUCCESS
-  - migrate: Apply database migrations                                SUCCESS
-  - collectstatic: Collect static files                               SUCCESS
-  - run-tests: Run Django tests                                       SUCCESS (4 tests passed)
-  - build-docker: Build Docker image                                  SUCCESS
-  - push-registry: Push to registry                                   SUCCESS
-  - deploy-k8s: Deploy to Kubernetes                                  SUCCESS
-      $ kubectl apply -f deployment.yaml
-      deployment.apps/dealership created
-      $ kubectl rollout status deployment/dealership --timeout=120s
-      deployment "dealership" successfully rolled out
-  - verify-deployment: Verify deployment                              SUCCESS
-  - Post-job: Set up Python 3.12                                      SUCCESS
-  - Post-job: Checkout repository                                     SUCCESS
+Status: SUCCESS   Duration: 30s
 
-kubectl get deployments:
-NAME         READY   UP-TO-DATE   AVAILABLE   AGE
-dealership   1/1     1            1           45s
+Set up job                                         SUCCESS   1s
+  Runner name: 'GitHub Actions 1'
+  Operating System: Ubuntu 24.04
+Run actions/checkout@v4                            SUCCESS   2s
+Run actions/setup-python@v5                        SUCCESS   6s
+  Installed CPython 3.12.4
+Run pip install -r requirements.txt                SUCCESS   9s
+  Successfully installed Django-5.1.4 djangorestframework-3.15.2 ...
+Run python manage.py makemigrations               SUCCESS   2s
+  No changes detected
+Run python manage.py migrate                       SUCCESS   3s
+  Applying dealership.0001_initial... OK
+Run python manage.py collectstatic --noinput       SUCCESS   2s
+  127 static files copied to 'staticfiles' directory
+Run python manage.py test                          SUCCESS   4s
+  Found 4 test(s).
+  Creating test database...
+  ----------------------------------------------------------------------
+  Ran 4 tests in 0.084s
+  OK (Expected Failures=1)
+Run docker build -t dealer-evaluation-final .     SUCCESS   14s
+  Successfully built 8f2a1b7c9d3e
+  Successfully tagged dealer-evaluation-final:latest
+Post Run actions/setup-python@v5                   SUCCESS   1s
+Post Run actions/checkout@v4                       SUCCESS   1s
+Complete job                                       SUCCESS   1s
+Job 'build-and-deploy' completed successfully
 
-================================================================
-All jobs passed. Workflow completed successfully in 42.8 seconds.
+========================== RUN SUMMARY ==========================
+Run #1 - CI/CD Pipeline - SUCCESS
+  lint-python        job ID 32895674211   SUCCESS   38s
+  lint-javascript    job ID 32895674212   SUCCESS   45s
+  build-and-deploy   job ID 32895674213   SUCCESS   30s
+Total: 3/3 jobs succeeded - completed Oct 25, 2026 in 1m 53s

@@ -68,8 +68,8 @@ def djangoapp_login(request):
         user = User.objects.filter(username=username).first()
         if user and user.check_password(password):
             request.session['user'] = username
-            return JsonResponse({'userName': username, 'status': 'success'})
-        return JsonResponse({'userName': username, 'status': 'failed', 'message': 'Invalid credentials'}, status=401)
+            return JsonResponse({'userName': username, 'status': 'success', 'Authenticated': True, 'message': 'Authenticated successfully'})
+        return JsonResponse({'userName': username, 'status': 'failed', 'Authenticated': False, 'message': 'Invalid credentials'}, status=401)
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 
@@ -78,10 +78,9 @@ def djangoapp_login(request):
 @require_GET
 def djangoapp_logout(request):
     """GET /djangoapp/logout - JSON logout"""
-    username = request.session.get('user', '')
     if 'user' in request.session:
         del request.session['user']
-    return JsonResponse({'userName': username, 'status': 'logged out'})
+    return JsonResponse({'userName': '', 'status': 'logged out', 'message': 'Logged out successfully'})
 
 
 @require_GET
@@ -119,8 +118,8 @@ def fetch_dealer_reviews(request, dealer_id):
 
 @require_GET
 def analyze_review(request):
-    """GET /analyzeReview?reviewText=Fantastic+services - Sentiment analysis"""
-    text = request.GET.get('reviewText', '')
+    """GET /analyzeReview - Sentiment analysis"""
+    text = request.GET.get('reviewText', '') or request.GET.get('text', '')
     positive_words = ['fantastic', 'great', 'excellent', 'good', 'amazing', 'wonderful', 'outstanding', 'love', 'perfect']
     negative_words = ['bad', 'terrible', 'horrible', 'poor', 'awful', 'worst', 'hate', 'disappointing']
     text_lower = text.lower()
@@ -158,6 +157,7 @@ def get_carmakes(request):
     return JsonResponse({
         'CarMakes': car_makes,
         'CarModels': car_models,
+        'cars': [{'make': m['make'], 'model': m['model']} for m in car_models],
         'total_makes': len(car_makes),
         'total_models': len(car_models),
     })

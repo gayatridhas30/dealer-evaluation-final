@@ -17,4 +17,10 @@ urlpatterns = [
     path('fetchDealerReviews/<int:dealer_id>', views.fetch_dealer_reviews, name='fetch_dealer_reviews'),
     path('analyzeReview', views.analyze_review, name='analyze_review'),
     path('getCarMakes', views.get_carmakes, name='get_carmakes'),
+
+    # Spec aliases required by assignment rubric
+    path('djangoapp/fetchDealerReviews/<int:dealer_id>', views.fetch_dealer_reviews, name='djangoapp_fetch_dealer_reviews'),
+    path('djangoapp/get_cars', views.get_carmakes, name='djangoapp_get_cars'),
+    path('djangoapp/analyze', views.analyze_review, name='djangoapp_analyze'),
+    path('djangoapp/get_sentiment', views.analyze_review, name='djangoapp_get_sentiment'),
 ]
