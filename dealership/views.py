@@ -135,6 +135,23 @@ def analyze_review(request):
 
 
 @require_GET
+def analyze_review_path(request, review_text):
+    """GET /analyze/<review_text> - Sentiment analysis, returns {"sentiment": ...}"""
+    text_lower = review_text.lower()
+    positive_words = ['fantastic', 'great', 'excellent', 'good', 'amazing', 'wonderful', 'outstanding', 'love', 'perfect']
+    negative_words = ['bad', 'terrible', 'horrible', 'poor', 'awful', 'worst', 'hate', 'disappointing']
+    pos_count = sum(1 for w in positive_words if w in text_lower)
+    neg_count = sum(1 for w in negative_words if w in text_lower)
+    if pos_count > neg_count:
+        sentiment = 'positive'
+    elif neg_count > pos_count:
+        sentiment = 'negative'
+    else:
+        sentiment = 'neutral'
+    return JsonResponse({'sentiment': sentiment})
+
+
+@require_GET
 def get_carmakes(request):
     """GET /getCarMakes - All car makes with nested CarModels"""
     makes = CarMake.objects.prefetch_related('models').all()

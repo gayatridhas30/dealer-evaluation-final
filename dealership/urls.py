@@ -23,4 +23,6 @@ urlpatterns = [
     path('djangoapp/get_cars', views.get_carmakes, name='djangoapp_get_cars'),
     path('djangoapp/analyze', views.analyze_review, name='djangoapp_analyze'),
     path('djangoapp/get_sentiment', views.analyze_review, name='djangoapp_get_sentiment'),
+    path('fetchReviews/dealer/<int:dealer_id>', views.fetch_dealer_reviews, name='fetch_reviews_dealer'),
+    path('analyze/<str:review_text>', views.analyze_review_path, name='analyze_path'),
 ]

@@ -1,6 +1,7 @@
-# Dealership Evaluation Application
+# fullstack_developer_capstone
 
-## Project Name: Dealership Evaluation Application
+## Repository Name: xrwvm-fullstack_developer_capstone
+## Project Name: fullstack_developer_capstone
 
 A full-stack Django web application for evaluating car dealers with user authentication, dealer management, reviews, and sentiment analysis. Containerized with Docker and deployed to Kubernetes.
 
