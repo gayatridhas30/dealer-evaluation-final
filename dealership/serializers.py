@@ -25,8 +25,9 @@ class DealerSerializer(serializers.ModelSerializer):
 
 class ReviewSerializer(serializers.ModelSerializer):
     review = serializers.CharField(source='comment', read_only=True)
+    dealership = serializers.IntegerField(source='dealer_id', read_only=True)
 
     class Meta:
         model = Review
-        fields = ['id', 'dealer', 'name', 'rating', 'comment', 'review', 'sentiment',
+        fields = ['id', 'dealer', 'dealership', 'name', 'rating', 'comment', 'review', 'sentiment',
                   'purchase', 'purchase_date', 'car_make', 'car_model', 'car_year']

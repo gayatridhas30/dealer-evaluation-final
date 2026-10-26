@@ -68,8 +68,16 @@ def djangoapp_login(request):
         user = User.objects.filter(username=username).first()
         if user and user.check_password(password):
             request.session['user'] = username
-            return JsonResponse({'userName': username, 'status': 'success', 'Authenticated': True, 'message': 'Authenticated successfully'})
-        return JsonResponse({'userName': username, 'status': 'failed', 'Authenticated': False, 'message': 'Invalid credentials'}, status=401)
+            import secrets
+            return JsonResponse({
+                'userName': username,
+                'userEmail': user.email or (username + '@example.com'),
+                'firstName': user.first_name or '',
+                'lastName': user.last_name or '',
+                'status': 'Authenticated',
+                'token': secrets.token_hex(20),
+            })
+        return JsonResponse({'userName': username, 'status': 'failed', 'message': 'Invalid credentials'}, status=401)
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 
@@ -170,6 +178,9 @@ def get_carmakes(request):
                 'model': model.name,
                 'name': model.name,
                 'year': model.year,
+                'CarMake': make.name,
+                'CarModel': model.name,
+                'Year': model.year,
             })
     return JsonResponse({
         'CarMakes': car_makes,
